@@ -9,7 +9,7 @@ def play():
 
 @app.route('/play/<x>')
 def boxes(x):
-    return render_template("index.html", times=int(x))
+    return render_template("index.html", times=int(x), color="blue")
 
 
 @app.route('/play/<x>/<color>')
