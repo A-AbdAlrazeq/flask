@@ -6,15 +6,6 @@ form {
   margin: 0 auto;
   padding: 5px;
 }
-.link {
-  text-decoration: none;
-  border: 1px solid black;
-  color: white;
-  padding: 5px;
-  margin-left: 250px;
-  width: fit-content;
-  background-color: green;
-}
 .Increment {
   display: flex;
   justify-content: center;
