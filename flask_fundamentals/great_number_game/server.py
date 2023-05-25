@@ -16,10 +16,7 @@ def index():
 @app.route('/guess', methods=['POST'])
 def guess():
     num=request.form['guess']
-    if num =="":
-         session['guess']=0
-    else:
-         session['guess'] = int(num)
+    session['guess'] = int(num)
 
     if 'attempts' not in session:
         session['attempts'] = 0
