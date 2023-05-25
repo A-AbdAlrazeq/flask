@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,session
 app = Flask(__name__)
+app.secret_key = 'keep it secret, keep it safe'
 
 
 @app.route('/', methods=['POST',"GET"])
@@ -10,25 +11,21 @@ def index():
 @app.route('/result', methods=['POST'])
 def create_user():
     print(request.form)
-    name = request.form['name']
-    city = request.form['city']
-    Language = request.form['Language']
-    Gender = request.form['gender']
-    Comment = request.form['comment']
+    session['name'] = request.form['name']
+    session ['city'] = request.form['city']
+    session ['Language'] = request.form['Language']
+    session ['Gender'] = request.form['gender']
+    session ['Comment'] = request.form['comment']
     if 'Check'not in request.form :
-        Checkbox ="not checked" 
+       session ['Checkbox'] ="not checked" 
     else:
-        Checkbox = request.form['Check']
+       session ['Checkbox'] = request.form['Check']
 
-    return render_template("show.html",
-                           name_on_template=name,
-                           city_on_template=city,
-                           Language_on_template=Language,
-                           gender_on_template=Gender,
-                           Checkbox_on_template=Checkbox,
-                           Comment_on_template=Comment,
-                           )
+    return redirect("/show")
 
+@app.route('/show', methods=['POST',"GET"])
+def show_results():
+    return render_template("show.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
