@@ -14,10 +14,12 @@ def create_user():
     city = request.form['city']
     Language = request.form['Language']
     Gender = request.form['gender']
-    Checkbox = request.form['Check']
     Comment = request.form['comment']
-    if request.form.get("Check") == "":
-        request.form['Check'] = ""
+    if 'Check'not in request.form :
+        Checkbox ="not checked" 
+    else:
+        Checkbox = request.form['Check']
+
     return render_template("show.html",
                            name_on_template=name,
                            city_on_template=city,
