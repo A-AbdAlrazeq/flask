@@ -9,19 +9,32 @@
       type="text/css"
       href="{{ url_for('static', filename='style.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <title>Counter</title>
   </head>
 
   <body>
     <h1>Counter</h1>
-    <p>refresh: {{ real_count }} times</p>
-    <p>user&add two button : {{ count }} times</p>
+    <p class="h3">refresh: {{ real_count }} times</p>
+    <p class="h3">user&add two button : {{ count }} times</p>
     <form action="/user" method="post">
-      <a href="/add">Add two times</a>
-      <a href="/destroy_session">Reset</a>
-      <label for="number">User Increment:</label>
-      <input type="text" name="number" />
-      <input type="submit" value="submit" />
+      <div class="Increment">
+        <label class="col-sm-2 col-form-label col-form-label-sm" for="number"
+          >User Increment:</label
+        >
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="number"
+          name="number"
+        />
+        <button type="submit" class="btn btn-success">submit</button>
+      </div>
+      <a class="link" href="/add">Add two times</a>
+      <a class="link" href="/destroy_session">Reset</a>
     </form>
   </body>
 </html>

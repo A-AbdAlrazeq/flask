@@ -24,9 +24,13 @@ def add_two():
 
 @app.route('/user',methods=['POST'])
 def user_number():
-    session['number'] = request.form['number']
-    session['count'] += int(session['number'])-1
-   
+    num=request.form['number']
+    if num=="":
+         num=0
+    else:
+        session['number'] = request.form['number']
+        session['count'] += int(num)-1
+        
     return redirect('/')
 
 if __name__ == "__main__":
