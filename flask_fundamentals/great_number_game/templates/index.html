@@ -18,8 +18,7 @@
       <p class="lead text-center">Enter a number between 1 and 100</p>
     </head>
 
-    {% if 'guess' in session and session['guess'] > 0 and session['guess'] <
-    session['number']%}
+    {% if 'guess' in session and session['guess'] < session['number']%}
     <div class="mx-auto my-4 p-4 w-25 bg-danger text-white rounded">
       <p class="display-6 text-center">Too Low!!</p>
     </div>
