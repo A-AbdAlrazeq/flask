@@ -24,9 +24,9 @@ def process_money():
     if session['move'] > 14 and not session['end_game']:
         if session['gold'] >= 100:
             session['activities'].insert(1, f"You won! ({now}) - Reset to play again!")
-            session['end_game'] = True
         else:
             session['activities'].insert(1, f"You lost.. ({now}) - Reset to play again..")
+        session['end_game'] = True
         return redirect('/')
 
     if request.form['action'] == "casino":
