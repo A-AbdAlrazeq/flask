@@ -65,7 +65,14 @@
         class="d-flex flex-column align-items-center justify-content-center"
       >
         <label>Take a guess...</label>
-        <input type="number" name="guess" class="m-3" required />
+        <input
+          type="number"
+          name="guess"
+          class="m-3"
+          min="1"
+          max="100"
+          required
+        />
         <button type="submit" class="btn btn-warning btn-lg">Guess</button>
       </form>
     </div>
